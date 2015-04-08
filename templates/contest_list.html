@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Zadaci</h2>
+
+  <ul class="contests">
+    {% for contest in contests %}
+    <li><a href="contests/{{ contest[0] }}.html">{{ contest[1] }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+

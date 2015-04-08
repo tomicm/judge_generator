@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ name }}</h2>
+
+<table class="tasks">
+  <tr>
+    <th>Ime zadatka</th>
+    <th>Godina</th>
+    <th>Kategorija</th>
+    <th>Runda</th>
+    <th>Težina</th>
+    <th>Akcije</th>
+  </tr>
+  {% for contest in contest_list %}
+  {% for task in manager.tasks_in_contest(contest) %}
+  <tr>
+    <td class="name">{{ task.name }}</td>
+    <td>{{ contest.year }}</td>
+    <td>{{ contest.category }}</td>
+    <td>{{ contest.round }}</td>
+    <td>? / {{ contest.num_tasks }}</td>
+    <td>download</td>
+  </tr>
+  {% endfor %}
+  {% endfor %}
+</table>
+{% endblock %}

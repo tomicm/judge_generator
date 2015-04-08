@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="UTF-8"> 
+<link rel="stylesheet" type="text/less" href="style.less" />
+<script type="text/javascript" src="less.js"></script>
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="nav">
+  <ul>
+    <li><a href="index.html">Početna</a></li>
+    <li><a href="tasks.html">Zadaci</a></li>
+    <li><a href="search.html">Pretraga</a></li>
+    <li><a href="status.html">Aktivnost</a></li>
+    <li><a href="about.html">O projektu</a></li>
+  </ul>
+</div>
+
+<div id="main">
+  {% block content %}{% endblock %}
+</div>
+
+</div>
+
+</body>
+
+</html>
+
+
