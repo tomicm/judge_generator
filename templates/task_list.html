@@ -1,27 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{ name }}</h2>
 
-<table class="tasks">
-  <tr>
-    <th>Ime zadatka</th>
-    <th>Godina</th>
-    <th>Kategorija</th>
-    <th>Runda</th>
-    <th>Težina</th>
-    <th>Akcije</th>
-  </tr>
-  {% for contest in contest_list %}
-  {% for task in manager.tasks_in_contest(contest) %}
-  <tr>
-    <td class="name">{{ task.name }}</td>
-    <td>{{ contest.year }}</td>
-    <td>{{ contest.category }}</td>
-    <td>{{ contest.round }}</td>
-    <td>? / {{ contest.num_tasks }}</td>
-    <td>download</td>
-  </tr>
-  {% endfor %}
-  {% endfor %}
-</table>
+<h2>Zadaci</h2>
+
+<ul class="tree">
+{% for key, value in task_tree.iteritems() recursive %}
+  {% set id = value[0] %}
+  {% set dict = value[1] %}
+  {% if key != '-tasks' %}
+    <li>
+    <input type="checkbox" id="{{ id }}" />
+    <label for="{{ id }}">{{ key }}</label>
+    <ul class="tree">
+    {{ loop(dict.iteritems()) }}
+    </ul>
+    </li>
+  {% else %}
+    <li>
+    <table class="tasks">
+      <tr>
+        <th>Ime zadatka</th>
+      </tr>
+      {% for task in value %}
+      <tr>
+        <td class="name">{{ task.name }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>
+
 {% endblock %}
