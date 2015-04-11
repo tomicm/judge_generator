@@ -1,0 +1,6 @@
+[submodule "spreadsheet_parser"]
+	path = spreadsheet_parser
+	url = https://github.com/mbradac/spreadsheet_parser
+[submodule "directory_tree_builder"]
+	path = directory_tree_builder
+	url = git://github.com/mbradac/directory_tree_builder
