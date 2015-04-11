@@ -2,10 +2,24 @@
 {% block content %}
   <h2>Zadaci</h2>
 
-  <ul class="contests">
-    {% for contest in contests %}
-    <li><a href="contests/{{ contest[0] }}.html">{{ contest[1] }}</a></li>
+  {% for name, years in contest_tree.iteritems() %}
+  <h3>{{ name }}</h3>
+  <table class="years">
+    {% for year, _ in years.iteritems() %}
+    {% if loop.index % 7 == 1 %}<tr>{% endif %}
+      <td>
+        <a href="contests/{{ name }}_{{ year }}.html">{{ year }}</a>
+      </td>
+    {% if loop.index % 7 == 0 %}</tr>{% endif %}
+    {% if loop.last and loop.index % 7 != 0 %}
+    {% for _ in range(7 - loop.index%7) %}
+    <td>-</td>
     {% endfor %}
-  </ul>
+    </tr>
+    {% endif %}
+   {% endfor %}
+
+  </table>
+  {% endfor %}
 {% endblock %}
 

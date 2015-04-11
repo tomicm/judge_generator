@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>{{ name }} {{ year }}</h2>
+
+{% for contest in rounds %}
+{% if contest.round != '' %}
+<h3>{{ contest.round }}</h3>
+{% endif %}
+<table class="tasks">
+  <tr>
+    <th>Ime zadatka</th>
+    <th>Težina</th>
+    <th>Ograničenja</th>
+    <th>Akcije</th>
+  </tr>
+{% for task in manager.tasks_in_contest(contest) %}
+  <tr>
+    <td>{{ task.name }}</td>
+    <td>{{ loop.index }}/{{ contest.num_tasks }}</td>
+    <td>?? s / ?? MB
+    <td>submit / download</td>
+  </tr>
+{% endfor %}
+</table>
+{% endfor %}
+
+{% endblock %}
