@@ -18,7 +18,12 @@ contest_list_template = env.get_template('contest_list.html')
 contest_template = env.get_template('contest.html')
 
 f = open('public_html/contests.html', 'w')
-f.write(contest_list_template.render(contest_tree=contest_tree).encode('utf8'))
+f.write(
+    contest_list_template.render(
+        manager=manager, 
+        contest_tree=contest_tree
+    ).encode('utf8')
+)
 f.close()
 
 for name, years in contest_tree.iteritems():

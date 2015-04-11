@@ -3,7 +3,7 @@
   <h2>Zadaci</h2>
 
   {% for name, years in contest_tree.iteritems() %}
-  <h3>{{ name }}</h3>
+  <h3>{{ manager.get_contest_full_name(name, True) }}</h3>
   <table class="years">
     {% for year, _ in years.iteritems() %}
     {% if loop.index % 7 == 1 %}<tr>{% endif %}
