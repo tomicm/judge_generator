@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>{{ manager.get_contest_full_name(name) }} {{ year }}</h2>
+<h2>{{ data_manager.get_contest_full_name(name) }} {{ year }}</h2>
 
 {% for contest in rounds %}
 {% if contest.round != '' %}
@@ -12,14 +12,15 @@
     <th>Ime zadatka</th>
     <th>Težina</th>
     <th>Ograničenja</th>
-    <th>Akcije</th>
+    <th colspan="2">Akcije</th>
   </tr>
-{% for task in manager.tasks_in_contest(contest) %}
+{% for task in data_manager.tasks_in_contest(contest) %}
   <tr>
     <td>{{ task.name }}</td>
     <td>{{ loop.index }}/{{ contest.num_tasks }}</td>
     <td>?? s / ?? MB
-    <td>submit / download</td>
+    <td>submit</td>
+    <td><a href="{{ dir_manager.task_pdf_path(task) }}">download</a></td>
   </tr>
 {% endfor %}
 </table>

@@ -1,11 +1,13 @@
 #!/usr/bin/python
 
 from spreadsheet_parser.data_manager import DataManager
+from directory_tree_builder.directory_manager import DirectoryManager
 from jinja2 import Environment, FileSystemLoader
 import itertools
 
-manager = DataManager()
-contests = manager.get_contests()
+data_manager = DataManager()
+dir_manager = DirectoryManager('.')
+contests = data_manager.get_contests()
 
 contest_tree = {}
 
@@ -20,7 +22,7 @@ contest_template = env.get_template('contest.html')
 f = open('public_html/contests.html', 'w')
 f.write(
     contest_list_template.render(
-        manager=manager, 
+        data_manager=data_manager, 
         contest_tree=contest_tree
     ).encode('utf8')
 )
@@ -30,7 +32,8 @@ for name, years in contest_tree.iteritems():
     for year, rounds in years.iteritems():
         f = open('public_html/contests/%s_%s.html' % (name, year), 'w')
         f.write(contest_template.render(
-            manager=manager,
+            data_manager=data_manager,
+            dir_manager=dir_manager,
             name=name,
             year=year,
             rounds=rounds
