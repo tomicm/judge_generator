@@ -8,8 +8,9 @@ HSIN arhiva - {{ data_manager.get_contest_full_name(name) }} {{ year }}
 <h2>{{ data_manager.get_contest_full_name(name) }} {{ year }}</h2>
 
 {% for contest in rounds %}
-{% if contest.round != '' %}
-<h3>{{ contest.round }}</h3>
+{% set round_name = data_manager.get_round_full_name(name, contest.round) %}
+{% if round_name != '' %}
+<h3>{{ round_name }}</h3>
 {% endif %}
 <table class="tasks">
   <tr>
