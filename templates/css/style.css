@@ -99,7 +99,7 @@ table.years {
   border: 1px solid #777777;
   border-collapse: collapse;
   table-layout: fixed;
-  width: 350px;
+  width: 500px;
 }
 
 table.years td {
@@ -119,12 +119,17 @@ table.years td:nth-child(odd) {
 table.tasks {
   border: 1px solid #bbbbbb;
   border-collapse: collapse;
-  table-layout: fixed;
+  width: 320px;
 }
 
-table.tasks td,th {
+table.tasks td {
   padding: 2px 7px 2px 7px;
-  border: 1px solid #bbbbbb;
+  border: 1px solid #aaaaaa;
+  text-align: center;
+}
+
+table.tasks td.h {
+  font-weight: bold;
   text-align: center;
 }
 

@@ -6,23 +6,24 @@ HSIN arhiva - Zadaci
 {% block content %}
   <h2>Zadaci</h2>
 
-  {% for name, years in contest_tree.iteritems() %}
+  {% for name, years in contest_years.iteritems() %}
   <h3>{{ data_manager.get_contest_full_name(name, True) }}</h3>
   <table class="years">
-    {% for year, _ in years.iteritems() %}
-    {% if loop.index % 7 == 1 %}<tr>{% endif %}
+    {% set year_min = (years|sort|first)//10*10    %}
+    {% set year_max = (years|sort|last)//10*10+10 %}
+    {% for yearRow in range(year_min, year_max)|batch(10) %}
+    <tr>
+      {% for year in yearRow %}
       <td>
-        <a href="./contests/{{ name }}_{{ year }}.html">{{ year }}</a>
+      {% if year in years %}
+        <a href="contests/{{ name }}_{{ year }}.html">{{ year }}</a>
+      {% else %}
+        -
+      {% endif %}
       </td>
-    {% if loop.index % 7 == 0 %}</tr>{% endif %}
-    {% if loop.last and loop.index % 7 != 0 %}
-    {% for _ in range(7 - loop.index%7) %}
-    <td>-</td>
-    {% endfor %}
+      {% endfor %}
     </tr>
-    {% endif %}
-   {% endfor %}
-
+    {% endfor %}
   </table>
   {% endfor %}
 {% endblock %}

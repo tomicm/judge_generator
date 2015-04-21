@@ -13,18 +13,17 @@ HSIN arhiva - {{ data_manager.get_contest_full_name(name) }} {{ year }}
 {% endif %}
 <table class="tasks">
   <tr>
-    <th>Ime zadatka</th>
-    <th>Težina</th>
-    <th>Ograničenja</th>
-    <th colspan="2">Akcije</th>
+    <td class="h">#</td>
+    <td class="h">Zadatak</td>
+    <td class="h" colspan="2">Akcije</td>
   </tr>
 {% for task in data_manager.tasks_in_contest(contest) %}
   <tr>
+    <td>{{ loop.index }}</td>
     <td>{{ task.name }}</td>
-    <td>{{ loop.index }}/{{ contest.num_tasks }}</td>
-    <td>?? s / ?? MB
     <td><a href="submit.html#{{ dir_manager.task_path(task)[2:] }}">submit</a></td>
-    <td><a href="{{ dir_manager.task_pdf_path(task) }}">download</a></td>
+    <td><a href="{{ dir_manager.task_pdf_path(task) }}">tekst</a></td>
+    </td>
   </tr>
 {% endfor %}
 </table>

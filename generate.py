@@ -65,15 +65,18 @@ if __name__ == '__main__':
 
     contests = data_manager.get_contests()
     contest_tree = {}
+    contest_years = {}
 
     for contest in contests:
         ct = contest_tree.setdefault(contest.short_name, {})
         ct.setdefault(contest.year, []).append(contest)
+        ct = contest_years.setdefault(contest.short_name, [])
+        ct.append(contest.year)
 
     renderToFile('%s/contests.html' % basedir, contest_list_template,
         settings=settings,
         data_manager=data_manager,
-        contest_tree=contest_tree
+        contest_years=contest_years,
     )
 
     for name, years in contest_tree.iteritems():
