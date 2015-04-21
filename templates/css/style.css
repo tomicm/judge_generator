@@ -1,0 +1,207 @@
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #000066;
+  font-size: 0.8em;
+  margin: 0 0 0 0;
+}
+
+#container {
+  border: 1px solid #aaaaaa;
+  background-color: #eeeeee;
+  margin: 50px;
+  overflow: hidden;
+  padding: 10px 10px 30px 10px;
+}
+
+#nav {
+  width: 180px;
+  float: left;
+  margin-top: 15px;
+}
+
+#main {
+  margin-left: 200px;
+  max-width: 600px;
+}
+
+/* sidebar */
+
+#nav ul {
+  list-style-type: none;
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+
+#nav li {
+  padding: 5px;
+}
+
+#nav a {
+  text-decoration: none;
+  color: #0000cc;
+  font-weight: bold;
+  margin: 1px 0px 1px 5px;
+}
+
+#nav a:link {
+}
+
+#nav a:visited {
+}
+
+#nav a:hover {
+  text-decoration: underline;
+}
+
+#nav a:active {
+  text-decoration: underline;
+}
+
+/* news */
+
+div.news {
+  width: 600px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #cccccc;
+  background-color: #f7f7f7;
+}
+
+div.news .title {
+  float: left;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+div.news .timestamp {
+  float: right;
+}
+
+.news hr {
+  margin: 0 0 10px 0;
+}
+
+/* contests and tasks */
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #0000cc;
+}
+
+table.years {
+  border: 1px solid #777777;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 350px;
+}
+
+table.years td {
+  padding: 5px;
+  border: 1px solid #777777;
+  text-align: center;
+}
+
+table.years td:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+table.years td:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+
+table.tasks {
+  border: 1px solid #bbbbbb;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+table.tasks td,th {
+  padding: 2px 7px 2px 7px;
+  border: 1px solid #bbbbbb;
+  text-align: center;
+}
+
+table.tasks td.name {
+  text-align: left;
+}
+
+table.tasks tr:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+table.tasks tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+/* task statement */
+
+p {
+  line-height: 150%;
+}
+
+div.taskinfo {
+  margin-bottom: 10px;
+}
+
+div.limits {
+  margin-bottom: 10px;
+}
+
+.taskinfo h2 {
+  padding: 0;
+  margin-bottom: 3px;
+}
+
+.taskinfo h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.limits h4 {
+  padding: 0;
+  margin: 0;
+}
+
+table.tests {
+  border: 1px solid #000066;
+  border-collapse: collapse;
+  width: 580px;
+}
+
+table.tests th,td {
+  border: none;
+  border-right: 1px solid #000066;
+  padding: 3px;
+}
+
+table.tests th {
+  text-align: left;
+}
+
+table.tests pre {
+  font-family: Courier, monospace;
+  font-size: 1em;
+  margin: 2px 0 2px 0;
+}
+
+table.info {
+  border: 0;
+  border-spacing: 10px 3px;
+}
+
+table.info td,th {
+  border: 0;
+}
+
+/* hax0r */
+
+.clearfix {
+  clear: both;
+}

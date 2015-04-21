@@ -3,10 +3,10 @@
 <html>
 
 <head>
-<base href="/home/mtomic/dev/zadaci/judge_generator/public_html/">
+<base href="{{ settings.basehref }}" />
 <meta charset="UTF-8"> 
-<link rel="stylesheet" type="text/less" href="style.less" />
-<script type="text/javascript" src="less.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -17,8 +17,7 @@
   <ul>
     <li><a href="index.html">Početna</a></li>
     <li><a href="contests.html">Natjecanja</a></li>
-    <li><a href="search.html">Pretraga</a></li>
-    <li><a href="status.html">Aktivnost</a></li>
+    <li><a href="help.html">Pomoć</a></li>
     <li><a href="about.html">O projektu</a></li>
   </ul>
 </div>

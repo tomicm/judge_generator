@@ -1,0 +1,40 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<script type="text/javascript" src="js/status.js"></script>
+
+<h2 id="contest">Ime natjecanja</h2>
+
+<h3 id="submission">Podaci o poslanom rješenju</h3>
+
+<div id="subinfo">
+<table class="info">
+  <tr>
+    <td>Zadatak:</td>
+    <td>ime zadatka</td>
+  </tr>
+  <tr>
+    <td>Vrijeme slanja:</td>
+    <td id="sendtime">?</td>
+  </tr>
+  <tr>
+    <td>Status:</td>
+    <td id="status">?</td>
+  </tr>
+</table>
+</div>
+
+<h3 id="evaluation">Rezultat evaluacije</h3>
+
+<div id="evalinfo">
+<table class="info">
+  <tr>
+    <td>Rezultat:</td>
+    <td id="result">?</td>
+</table>
+</div>
+  
+</div>
+
+{% endblock %}

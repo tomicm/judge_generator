@@ -1,4 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'html/base.html' %}
+{% block title %}
+HSIN arhiva - {{ data_manager.get_contest_full_name(name) }} {{ year }}
+{% endblock %}
+
 {% block content %}
 
 <h2>{{ data_manager.get_contest_full_name(name) }} {{ year }}</h2>
@@ -19,7 +23,7 @@
     <td>{{ task.name }}</td>
     <td>{{ loop.index }}/{{ contest.num_tasks }}</td>
     <td>?? s / ?? MB
-    <td>submit</td>
+    <td><a href="submit.html#{{ dir_manager.task_path(task)[2:] }}">submit</a></td>
     <td><a href="{{ dir_manager.task_pdf_path(task) }}">download</a></td>
   </tr>
 {% endfor %}

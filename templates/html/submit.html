@@ -1,0 +1,28 @@
+{% extends 'html/base.html' %}
+{% block content %}
+
+<script type="text/javascript" src="js/submit.js"></script>
+
+<h2 id="contest">Ime natjecanja</h2>
+
+<h3 id="submission">Slanje rješenja</h3>
+
+<table class="info">
+  <tr>
+    <td>Zadatak:</td>
+    <td>zadatak</td>
+  </tr>
+  <tr>
+    <td>Rješenje:</td>
+    <td><input type="file" id="source" />
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="button" onClick="submit();" value="Pošalji"/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td id="msg"></td>
+  </tr>
+</table>
+{% endblock %}
