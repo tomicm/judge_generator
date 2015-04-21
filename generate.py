@@ -57,7 +57,7 @@ if __name__ == '__main__':
         _makedirs('%s/%s' % (basedir, directory))
 
     dir_manager = DirectoryManager(basedir)
-    dir_manager.build_from_spreadsheet(True, False, True)
+    dir_manager.build_from_spreadsheet(True, False, settings['test'])
 
 #   generating HTML
     data_manager = DataManager()
