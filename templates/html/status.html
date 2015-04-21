@@ -1,10 +1,13 @@
 {% extends 'html/base.html' %}
+{% block title %}HSIN arhiva - status{% endblock %}
 
 {% block content %}
 
+<script type="text/javascript" src="js/data.js"></script>
 <script type="text/javascript" src="js/status.js"></script>
 
 <h2 id="contest">Ime natjecanja</h2>
+<h3 id="round">Runda</h3>
 
 <h3 id="submission">Podaci o poslanom rješenju</h3>
 
@@ -12,7 +15,7 @@
 <table class="info">
   <tr>
     <td>Zadatak:</td>
-    <td>ime zadatka</td>
+    <td id="task">zadatak</td>
   </tr>
   <tr>
     <td>Vrijeme slanja:</td>

@@ -63,6 +63,17 @@ function parseResponse(response) {
 
   document.getElementById('sendtime').innerHTML = response.createTime;
 
+  var task = response.testSetId.split('@')[1];
+  var info = get_task_info(task);
+
+  if(info == undefined) {
+    console.log('erol 404');
+  } else {
+    document.getElementById('contest').innerHTML = info['contest_name'];
+    document.getElementById('round').innerHTML = info['round_name'];
+    document.getElementById('task').innerHTML = info['task_name'];
+  }
+
   if(response.status == 'waiting') {
     updateInfo(WAITING);
   }

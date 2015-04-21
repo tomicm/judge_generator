@@ -1,3 +1,17 @@
+window.onload = function() {
+  var url = window.location.href;
+  var task = 'unknown';
+  if(url.split('#')[1]) task = url.split('#')[1];
+  var info = get_task_info(task);
+  if(info == undefined) 
+    console.log('erol 404');
+  else {
+    document.getElementById('contest').innerHTML = info['contest_name'];
+    document.getElementById('round').innerHTML = info['round_name'];
+    document.getElementById('task').innerHTML = info['task_name'];
+  }
+}
+
 function submit() {
 
   var source = document.getElementById('source');

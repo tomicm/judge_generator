@@ -6,6 +6,7 @@ from directory_tree_builder.directory_manager import DirectoryManager
 import sys, os
 import itertools
 import _settings
+import json
 
 
 def _makedirs(path):
@@ -95,3 +96,21 @@ if __name__ == '__main__':
     for (template_path, dest) in simple_templates:
         template = env.get_template(template_path)
         renderToFile('%s/%s' % (basedir, dest), template, settings=settings)
+
+#   generating task and contest info
+    tasks = data_manager.get_tasks()
+    task_info = {}
+
+    data_template = env.get_template('js/data.js')
+
+    for task in tasks:
+        curr = task_info
+        for folder in dir_manager.task_path(task)[2:].split('/'):
+            curr = curr.setdefault(folder, {})
+        curr['task_name'] = task.name
+        ct = data_manager.contest_of_task(task)
+        curr['contest_name'] = u'%s %d' % (ct.full_name, ct.year)
+        curr['round_name'] = data_manager.get_round_full_name(ct.short_name, ct.round)
+
+    renderToFile('%s/js/data.js' % basedir, data_template, task_info=json.dumps(task_info))
+
