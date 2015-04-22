@@ -19,7 +19,7 @@ function submit() {
   var sourceFile = source.files[0];
 
   if(sourceFile != undefined) {
-    if(sourceFile.type.match(/text.*/)) {
+    if(sourceFile.size <= {{ settings.source_limit }}) {
       var reader = new FileReader();
       reader.onload = function() {
         sendRequest(reader.result);
@@ -27,7 +27,7 @@ function submit() {
       reader.readAsText(sourceFile);
       return;
     } else {
-      document.getElementById('msg').innerHTML = 'Odaberite *.cpp datoteku.';
+      document.getElementById('msg').innerHTML = 'Datoteka ne smije biti veća od {{ settings.source_limit // 1000 }} kB.';
     }
   } else {
     document.getElementById('msg').innerHTML = 'Odaberite datoteku s rješenjem.';
