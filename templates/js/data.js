@@ -9,3 +9,7 @@ function get_task_info(taskPath) {
   }
   return curr;
 }
+
+function get_task_pdf_path(taskPath) {
+  return taskPath + '/' + taskPath.split('-').slice(-1)[0] + '.pdf';
+}

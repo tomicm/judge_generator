@@ -117,7 +117,7 @@ table.years td:nth-child(odd) {
 }
 
 table.tasks {
-  border: 1px solid #bbbbbb;
+  border: 1px solid #aaaaaa;
   border-collapse: collapse;
   width: 320px;
 }
@@ -128,13 +128,9 @@ table.tasks td {
   text-align: center;
 }
 
-table.tasks td.h {
+td.h {
   font-weight: bold;
   text-align: center;
-}
-
-table.tasks td.name {
-  text-align: left;
 }
 
 table.tasks tr:nth-child(odd) {
@@ -203,6 +199,38 @@ table.info {
 
 table.info td,th {
   border: 0;
+}
+
+table.found {
+  border: 1px solid #bbbbbb;
+  border-collapse: collapse;
+  width: 650px;
+}
+
+table.found td {
+  padding: 2px 7px 2px 7px;
+  border: 1px solid #aaaaaa;
+  text-align: center;
+}
+
+table.found tr:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+table.found tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+table.search {
+  border: 0px;
+}
+
+table.search td {
+  border: 0px;
+}
+
+table.search input[type=text] {
+  width: 300px;
 }
 
 /* hax0r */

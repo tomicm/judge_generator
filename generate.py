@@ -36,6 +36,7 @@ if __name__ == '__main__':
         ('css/style.css', 'css/style.css'),
         ('js/submit.js', 'js/submit.js'),
         ('js/status.js', 'js/status.js'),
+        ('js/search_client.js', 'js/search_client.js'),
     ]
 
 #   directories to make
