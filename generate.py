@@ -8,7 +8,6 @@ import itertools
 import _settings
 import json
 
-
 def _makedirs(path):
     try:
         os.makedirs(path)
@@ -33,6 +32,7 @@ if __name__ == '__main__':
         ('html/about.html', 'about.html'),
         ('html/submit.html', 'submit.html'),
         ('html/status.html', 'status.html'),
+        ('html/search.html', 'search.html'),
         ('css/style.css', 'css/style.css'),
         ('js/submit.js', 'js/submit.js'),
         ('js/status.js', 'js/status.js'),
@@ -113,4 +113,3 @@ if __name__ == '__main__':
         curr['round_name'] = data_manager.get_round_full_name(ct.short_name, ct.round)
 
     renderToFile('%s/js/data.js' % basedir, data_template, task_info=json.dumps(task_info))
-

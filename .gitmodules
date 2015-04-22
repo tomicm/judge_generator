@@ -4,3 +4,6 @@
 [submodule "directory_tree_builder"]
 	path = directory_tree_builder
 	url = https://github.com/mbradac/directory_tree_builder
+[submodule "zadaci-search"]
+	path = zadaci-search
+	url = https://github.com/agrbin/zadaci-search
