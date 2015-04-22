@@ -37,10 +37,10 @@
   <tr ng-repeat="task in tasks">
     {% raw %}
     <td>{{ 1+$index }}</td>
-    <td class="name">{{ task[1].task_name }}</td>
-    <td class="name">{{ task[1].contest_name }}, {{ task[1].round_name }}</td>
+    <td class="name">{{ task[1] }}</td>
+    <td class="name">{{ task[2] }}</td>
     <td><a href="submit.html#{{ task[0] }}">submit</a></td>
-    <td><a href="{{ task[2] }}">tekst</a></td>
+    <td><a href="{{ task[3] }}">tekst</a></td>
     {% endraw %}
   </tr>
 </table>
