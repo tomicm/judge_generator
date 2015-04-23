@@ -90,7 +90,6 @@ if __name__ == '__main__':
 
     for name, years in contest_tree.iteritems():
         for year, rounds in years.iteritems():
-            print rounds
             rounds_ordered = sorted(rounds, key=operator.attrgetter('round'))
             renderToFile(
                 '%s/contests/%s_%s.html' % (basedir, name, year),
