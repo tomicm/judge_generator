@@ -204,6 +204,7 @@ table.info td,th {
 table.found {
   border: 1px solid #bbbbbb;
   border-collapse: collapse;
+  width: 650px;
 }
 
 table.found td {
@@ -211,11 +212,6 @@ table.found td {
   border: 1px solid #aaaaaa;
   text-align: center;
 }
-
-table.found td.h div.o1 { width: 20px; }
-table.found td.h div.o2 { width: 70px; }
-table.found td.h div.o3 { width: 410px; }
-table.found td.h div.o4 { width: 110px; }
 
 table.found tr:nth-child(odd) {
   background-color: #eeeeee;
