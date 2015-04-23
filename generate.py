@@ -4,9 +4,11 @@ from jinja2 import Environment, FileSystemLoader
 from spreadsheet_parser.data_manager import DataManager
 from directory_tree_builder.directory_manager import DirectoryManager
 import sys, os
-import itertools
+import operator
 import _settings
 import json
+
+from collections import OrderedDict
 
 def _makedirs(path):
     try:
@@ -75,14 +77,21 @@ if __name__ == '__main__':
         ct = contest_years.setdefault(contest.short_name, [])
         ct.append(contest.year)
 
+    contest_names = data_manager.contest_short_names()
+    contest_years_ordered = OrderedDict(sorted(contest_years.items(), key=lambda t: contest_names.index(t[0])))
+
     renderToFile('%s/contests.html' % basedir, contest_list_template,
         settings=settings,
         data_manager=data_manager,
-        contest_years=contest_years,
+        contest_years=contest_years_ordered,
     )
+
+    round_names = data_manager.round_short_names()
 
     for name, years in contest_tree.iteritems():
         for year, rounds in years.iteritems():
+            print rounds
+            rounds_ordered = sorted(rounds, key=operator.attrgetter('round'))
             renderToFile(
                 '%s/contests/%s_%s.html' % (basedir, name, year),
                 contest_template,
@@ -91,7 +100,7 @@ if __name__ == '__main__':
                 dir_manager=dir_manager,
                 name=name,
                 year=year,
-                rounds=rounds
+                rounds=rounds_ordered,
             )
     
     for (template_path, dest) in simple_templates:

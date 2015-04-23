@@ -13,3 +13,7 @@ function get_task_info(taskPath) {
 function get_task_pdf_path(taskPath) {
   return taskPath + '/' + taskPath.split('-').slice(-1)[0] + '.pdf';
 }
+
+function get_contest_link(taskPath) {
+  return 'contests/'.concat(taskPath.split('/').slice(1, 3).join('_') + '.html');
+}

@@ -22,8 +22,8 @@ HSIN arhiva - {{ data_manager.get_contest_full_name(name) }} {{ year }}
   <tr>
     <td>{{ loop.index }}</td>
     <td>{{ task.name }}</td>
-    <td><a href="submit.html#{{ dir_manager.task_path(task)[2:] }}">submit</a></td>
     <td><a href="{{ dir_manager.task_pdf_path(task) }}">tekst</a></td>
+    <td><a href="submit.html#{{ dir_manager.task_path(task)[2:] }}">submit</a></td>
     </td>
   </tr>
 {% endfor %}
